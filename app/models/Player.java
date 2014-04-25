@@ -6,10 +6,10 @@ import javax.persistence.*;
 import play.db.jpa.*;
  
 @Entity
-public class User extends Model {
+public class Player extends Model {
 	public String fullname;
 
-	public User(String username) {
+	public Player(String username) {
 		fullname=username;
 	}
 }

@@ -11,9 +11,8 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-GET	/users					Users.list
-GET	/user/{id}				Users.get
-
-GET	/users/create				Users.add
+GET	/players				Players.list
+GET	/players/{id}				Players.get
+GET	/player/create/{name}			Players.add
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

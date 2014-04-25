@@ -7,19 +7,19 @@ import play.mvc.*;
  
 import models.*;
  
-public class Users extends Controller {
+public class Players extends Controller {
  
     public static void list() {
-	renderJSON(User.findAll());
+	renderJSON(Player.findAll());
     }
 
-    public static void add() {
-	User newUser = new User("test").save();
+    public static void add(String name) {
+	Player newUser = new Player(name).save();
         renderJSON(newUser);
     } 
 
     public static void get(Long id) {
-        User user = User.findById(id);
+        Player user = Player.findById(id);
 	renderJSON(user);
     }
 
