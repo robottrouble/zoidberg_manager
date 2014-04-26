@@ -12,10 +12,12 @@ GET     /favicon.ico                            		404
 GET     /public/                                		staticDir:public
 
 GET	/players						Players.list
+GET	/players/scores			     			Players.scores
 GET	/player/{id}						Players.get
 GET	/player/create/{name}					Players.add
 GET	/player/search/{name}					Players.findByName
 GET	/player/{id}/games					Players.findGames
+
 # Catch all
 GET	/games							Games.list
 GET	/game/{id}						Games.get

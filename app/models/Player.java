@@ -9,7 +9,6 @@ import play.db.jpa.*;
 public class Player extends Model {
 	@Column(unique = true) 
 	public String fullname;
-
 	public int score;
 
    	public String avatarUrl;
@@ -20,9 +19,9 @@ public class Player extends Model {
 		this.avatarUrl=avatarUrl;
 	}
     
-    public void incrementScore (int score){
-        this.score += score;
-    }
+	public void incrementScore (int score){
+		this.score += score;
+	}
     
 }
 

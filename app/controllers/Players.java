@@ -46,4 +46,8 @@ public class Players extends Controller {
 		return AVATAR_PATH + avatarFileName;
 	}
  
+	public static void scores() {
+		List<Player> allPlayers = Player.findAll();
+		render(allPlayers);
+	}
 }
