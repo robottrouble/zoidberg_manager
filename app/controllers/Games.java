@@ -24,19 +24,23 @@ public class Games extends Controller {
 		}
     }
  
-    public static void list() {
+	public static void list() {
 		renderJSON(Game.findAll());
-    }
+	}
 
-    public static void create(Long player1_id, Long player2_id, Long gameId) {
+	public static void create(Long player1_id, Long player2_id, Long gameId) {
 		Player player1 = Player.findById(player1_id);
 		Player player2 = Player.findById(player2_id);
 
 		Game newGame = new Game(player1, player2, gameId, Status.STARTED.getId()).save();
 		renderJSON(newGame);
-    } 
+	} 
 
-    public static void finish(Long id, int scoreplayer1, int scoreplayer2) {
+	public static void finish(Long id, int score) {
+		finish(id, score, score);
+	}
+
+	public static void finish(Long id, int scoreplayer1, int scoreplayer2) {
 		Game finishedGame = Game.findById(id);
 		finishedGame.player1.incrementScore(scoreplayer1);
 		finishedGame.player2.incrementScore(scoreplayer2);
@@ -47,7 +51,7 @@ public class Games extends Controller {
 		finishedGame.gameStatusId = Status.FINISHED.getId();
 		finishedGame.save();
 		renderJSON(finishedGame);
-    }
+	}
 
 
 	public static void updateData(Long id) {
