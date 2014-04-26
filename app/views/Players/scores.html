@@ -23,6 +23,11 @@ td
 font-family:myFirstFont;
 color:green;
 }
+td.topthree
+{
+font-family:myFirstFont;
+color:cyan;
+}
 th
 {
 font-family:myFirstFont;
@@ -61,26 +66,28 @@ color:red;
 #{list items:allPlayers, as:'player'}
 
 <div class="post">
-    <tr align="center">
-	<td>
-		<h3>${i++}</h3>
+    <tr align="center" #{if i < 3} class="topthree" #{/if} >
+	<td #{if i < 4} class="topthree" #{/if}>
+	
+		<h3>${i}</h3>
 	</td>
-        <td>
+        <td #{if i < 4} class="topthree" #{/if}>
             <h3>
                <img src="/${player.avatarUrl}" width="100">
             </h3>
         </td>
-        <td>
+        <td #{if i < 4} class="topthree" #{/if}>
             <h3>
                ${player.fullname}
             </h3>
         </td>
-        <td>
+        <td #{if i < 4} class="topthree" #{/if}>
             <h3>
                 ${player.score}
             </h3>
         </td>
     </tr>
+   %{ i++; }%
    #{/list}
   </table>
 
