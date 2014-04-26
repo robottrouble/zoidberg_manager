@@ -28,6 +28,14 @@ public class Games extends Controller {
 		renderJSON(Game.findAll());
 	}
 
+	public static void createSingle(Long player1_id, Long player2_id, Long gameId) {
+		Player player1 = Player.findById(player1_id);
+
+		Game newGame = new Game(player1, null, gameId, Status.STARTED.getId()).save();
+		renderJSON(newGame);
+	} 
+
+
 	public static void create(Long player1_id, Long player2_id, Long gameId) {
 		Player player1 = Player.findById(player1_id);
 		Player player2 = Player.findById(player2_id);
@@ -43,11 +51,15 @@ public class Games extends Controller {
 	public static void finish(Long id, int scoreplayer1, int scoreplayer2) {
 		Game finishedGame = Game.findById(id);
 		finishedGame.player1.incrementScore(scoreplayer1);
-		finishedGame.player2.incrementScore(scoreplayer2);
 		finishedGame.player1.save();
-		finishedGame.player2.save();
 		finishedGame.scorePlayer1 = scoreplayer1;
-		finishedGame.scorePlayer2 = scoreplayer2;
+
+		if (finishedGame.player2 != null) {
+			finishedGame.player2.incrementScore(scoreplayer2);
+			finishedGame.player2.save();
+			finishedGame.scorePlayer2 = scoreplayer2;
+		}
+
 		finishedGame.gameStatusId = Status.FINISHED.getId();
 		finishedGame.save();
 		renderJSON(finishedGame);

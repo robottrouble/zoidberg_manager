@@ -27,4 +27,5 @@ GET	/game/{id}/finish/{scoreplayer1}/{scoreplayer2} 	Games.finish
 GET	/game/{id}/finish/{score}			 	Games.finishShared
 GET	/games							Games.list
 GET	/game/create/{player1_id}/{player2_id}/{gameTypeID}	Games.create
+GET	/game/create/{player1_id}/{gameTypeID}			Games.createSingle
 *       /{controller}/{action}                  		{controller}.{action}
