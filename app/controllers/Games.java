@@ -1,12 +1,11 @@
 package controllers;
  
 import java.util.*;
- 
 import play.*;
 import play.mvc.*;
- 
 import models.*;
- 
+import java.io.InputStream;
+
 public class Games extends Controller {
     public enum Status {
         NEW(0L),
@@ -43,4 +42,25 @@ public class Games extends Controller {
 		finishedGame.save();
 		renderJSON(finishedGame);
     }
+
+
+	public static void updateData(Long id) {
+		Game updateGame = Game.findById(id);
+		updateGame.setData(request.body, request.contentType);
+		updateGame.save();
+		renderJSON(updateGame);
+	}
+
+	public static void get(Long id) {
+		renderJSON(Game.findById(id));
+	}
+
+	public static void getData(Long id) {
+		Game game = Game.findById(id);
+		response.setContentTypeIfNotSet(game.data.type());
+		java.io.InputStream binaryData = game.data.get();
+		renderBinary(binaryData);
+	}
+
+
 }

@@ -1,5 +1,6 @@
 package models;
  
+import java.io.InputStream;
 import java.util.*;
 import javax.persistence.*;
  
@@ -18,10 +19,18 @@ public class Game extends Model {
 
 	public Long gameStatusId;
 
+	public Blob data;
+
 	public Game(Player player1, Player player2, Long gameTypeId, Long status) {
 		this.player1 = player1;
 		this.player2 = player2;
 		this.gameTypeId = gameTypeId;
 		this.gameStatusId = status;
+	}
+
+	public void setData(InputStream data, String mimetype) {
+		Blob blob = new Blob();
+		blob.set(data, mimetype);
+		this.data = blob;
 	}
 }
