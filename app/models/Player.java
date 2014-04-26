@@ -7,6 +7,7 @@ import play.db.jpa.*;
  
 @Entity
 public class Player extends Model {
+	@Column(unique = true) 
 	public String fullname;
 
 	public Player(String username) {
