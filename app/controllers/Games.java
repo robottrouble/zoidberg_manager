@@ -36,8 +36,12 @@ public class Games extends Controller {
         renderJSON(newGame);
     } 
 
-    public static void finish(Long gameId, int Score) {
+    public static void finish(Long gameId, int scoreplayer1, int scoreplayer2) {
        	Game finishedGame = Game.findById(gameId);
+        finishedGame.player1.incrementScore(scoreplayer1);
+        finishedGame.player2.incrementScore(scoreplayer2);
+        finishedGame.player1.save();
+        finishedGame.player2.save();
 		finishedGame.gameStatusId = Status.FINISHED.getId();
 		finishedGame.save();
 		renderJSON(finishedGame);
