@@ -12,13 +12,16 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 
 GET	/players				Players.list
-GET	/players/{id}				Players.get
+GET	/player/{id}				Players.get
 GET	/player/create/{name}			Players.add
+GET	/player/search/{name}			Players.findByName
+GET	/player/{id}/games			Players.findGames
 # Catch all
+GET	/games					Games.list
 GET	/game/{id}				Games.get
 GET	/game/{id}/data				Games.getData
 PUT	/game/{id}/data				Games.updateData
-GET	/games/create/{player1_id}/{player2_id}/{gameTypeID}	Games.create
 GET	/games/finish/{gameId}/{scoreplayer1}/{scoreplayer2} Games.finish
 GET	/games					Games.list
+GET	/game/create/{player1_id}/{player2_id}/{gameTypeID}	Games.create
 *       /{controller}/{action}                  {controller}.{action}
