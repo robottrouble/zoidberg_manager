@@ -24,7 +24,7 @@ GET	/game/{id}						Games.get
 GET	/game/{id}/data						Games.getData
 PUT	/game/{id}/data						Games.updateData
 GET	/game/{id}/finish/{scoreplayer1}/{scoreplayer2} 	Games.finish
-GET	/game/{id}/finish/{score}			 	Games.finish
+GET	/game/{id}/finish/{score}			 	Games.finishShared
 GET	/games							Games.list
 GET	/game/create/{player1_id}/{player2_id}/{gameTypeID}	Games.create
 *       /{controller}/{action}                  		{controller}.{action}

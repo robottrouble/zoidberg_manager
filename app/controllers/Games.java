@@ -36,7 +36,7 @@ public class Games extends Controller {
 		renderJSON(newGame);
 	} 
 
-	public static void finish(Long id, int score) {
+	public static void finishShared(Long id, int score) {
 		finish(id, score, score);
 	}
 
