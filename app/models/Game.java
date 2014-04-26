@@ -11,11 +11,11 @@ public class Game extends Model {
 
 	@OneToOne
 	public Player player1;
-    public long ScorePlayer1;
+	public long scorePlayer1;
 
 	@OneToOne
 	public Player player2;
-    public long ScorePlayer2;
+	public long scorePlayer2;
 
 	public Long gameTypeId;
 

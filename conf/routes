@@ -3,25 +3,25 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                       		Application.index
 
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET     /favicon.ico                            		404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET     /public/                                		staticDir:public
 
-GET	/players				Players.list
-GET	/player/{id}				Players.get
-GET	/player/create/{name}			Players.add
-GET	/player/search/{name}			Players.findByName
-GET	/player/{id}/games			Players.findGames
+GET	/players						Players.list
+GET	/player/{id}						Players.get
+GET	/player/create/{name}					Players.add
+GET	/player/search/{name}					Players.findByName
+GET	/player/{id}/games					Players.findGames
 # Catch all
-GET	/games					Games.list
-GET	/game/{id}				Games.get
-GET	/game/{id}/data				Games.getData
-PUT	/game/{id}/data				Games.updateData
-GET	/games/finish/{gameId}/{scoreplayer1}/{scoreplayer2} Games.finish
-GET	/games					Games.list
+GET	/games							Games.list
+GET	/game/{id}						Games.get
+GET	/game/{id}/data						Games.getData
+PUT	/game/{id}/data						Games.updateData
+GET	/game/{id}/finish/{scoreplayer1}/{scoreplayer2} 	Games.finish
+GET	/games							Games.list
 GET	/game/create/{player1_id}/{player2_id}/{gameTypeID}	Games.create
-*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}                  		{controller}.{action}

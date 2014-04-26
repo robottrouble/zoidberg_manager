@@ -33,15 +33,17 @@ public class Games extends Controller {
 		Player player2 = Player.findById(player2_id);
 
 		Game newGame = new Game(player1, player2, gameId, Status.STARTED.getId()).save();
-        renderJSON(newGame);
+		renderJSON(newGame);
     } 
 
-    public static void finish(Long gameId, int scoreplayer1, int scoreplayer2) {
-       	Game finishedGame = Game.findById(gameId);
-        finishedGame.player1.incrementScore(scoreplayer1);
-        finishedGame.player2.incrementScore(scoreplayer2);
-        finishedGame.player1.save();
-        finishedGame.player2.save();
+    public static void finish(Long id, int scoreplayer1, int scoreplayer2) {
+		Game finishedGame = Game.findById(id);
+		finishedGame.player1.incrementScore(scoreplayer1);
+		finishedGame.player2.incrementScore(scoreplayer2);
+		finishedGame.player1.save();
+		finishedGame.player2.save();
+		finishedGame.scorePlayer1 = scoreplayer1;
+		finishedGame.scorePlayer2 = scoreplayer2;
 		finishedGame.gameStatusId = Status.FINISHED.getId();
 		finishedGame.save();
 		renderJSON(finishedGame);

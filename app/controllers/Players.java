@@ -30,7 +30,8 @@ public class Players extends Controller {
 
 	public static void findGames(Long id) {
 		Player player = Player.findById(id);
-		List<Game> games = Game.find("byPlayer1OrPlayer2", player, player).fetch();	
+		Player player2 = Player.findById(id);
+		List<Game> games = Game.find("player1 = ? or player2 = ?", player, player2).fetch();	
 		renderJSON(games);
 	}
 }
