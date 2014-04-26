@@ -12,10 +12,12 @@ public class Player extends Model {
 
 	public int score;
 
-    
-	public Player(String username) {
-		fullname=username;
-		score=0;
+   	public String avatarUrl;
+ 
+	public Player(String username, String avatarUrl) {
+		this.fullname=username;
+		this.score=0;
+		this.avatarUrl=avatarUrl;
 	}
     
     public void incrementScore (int score){
