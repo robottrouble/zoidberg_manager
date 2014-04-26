@@ -33,4 +33,9 @@ public class Players extends Controller {
 		List<Game> games = Game.find("byPlayer1OrPlayer2", player, player).fetch();	
 		renderJSON(games);
 	}
+    
+    public static void scores() {
+        List<Player> allPlayers = Player.findAll();
+        render(allPlayers);
+    }
 }

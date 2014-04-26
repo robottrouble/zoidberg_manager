@@ -9,9 +9,7 @@ import play.db.jpa.*;
 public class Player extends Model {
 	@Column(unique = true) 
 	public String fullname;
-
 	public int score;
-
     
 	public Player(String username) {
 		fullname=username;

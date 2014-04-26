@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+  </style>
+</head>
+<body>
+<p class="p1">#{get 'moreStyles' /} #{get 'moreScripts' /} </p>
+
+<form id="form1">
+    <div>
+        
+         <h1 style="text-align: center">
+            Players score board</h1>
+        
+    </div>
+</form>
+
+#{if allPlayers}
+
+
+<table style="width:100%;">
+    
+<tr>
+    <td>
+        <h2>
+            Avatar</h2>
+    </td>
+    <td>
+        <h2>
+            Name</h2>
+    </td>
+    <td>
+        <h2>
+            Score</h2>
+    </td>
+</tr>
+#{list items:allPlayers, as:'player'}
+
+<div class="post">
+    <tr>
+        <td>
+            <h3>
+            </h3>
+        </td>
+        <td>
+            <h3>
+                 ${player.fullname}
+            </h3>
+        </td>
+        <td>
+            <h3>
+                ${player.score}
+            </h3>
+        </td>
+    </tr>
+   #{/list}
+  </table>
+
+
+
+#{/if}
+
+</body>
+</html>
