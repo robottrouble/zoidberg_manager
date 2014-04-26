@@ -47,7 +47,7 @@ public class Players extends Controller {
 	}
  
 	public static void scores() {
-		List<Player> allPlayers = Player.find("order by score desc").fetch();
+		List<Player> allPlayers = Player.find("order by score desc").fetch(10);
 		render(allPlayers);
 	}
 }

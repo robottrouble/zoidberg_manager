@@ -16,12 +16,8 @@ public class Game extends Model {
 	@OneToOne
 	public Player player2;
 	public long scorePlayer2;
-
 	public Long gameTypeId;
-
 	public Long gameStatusId;
-    
-
 	public Blob data;
 
 	public Game(Player player1, Player player2, Long gameTypeId, Long status) {

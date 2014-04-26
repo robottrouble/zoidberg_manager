@@ -22,7 +22,4 @@ public class Player extends Model {
 	public void incrementScore (int score){
 		this.score += score;
 	}
-    
 }
-
-

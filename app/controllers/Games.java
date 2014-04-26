@@ -22,7 +22,7 @@ public class Games extends Controller {
 		public Long getId() {
 			return statusId;
 		}
-    }
+	}
  
 	public static void list() {
 		renderJSON(Game.findAll());
